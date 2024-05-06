@@ -13,7 +13,13 @@ docker-build:
 docker-push:
 	docker push $(IMAGEN_NAME)
 
-docker-deploy-hub: docker-build docker-login docker-push
+docker-deploy-hub: 
+	echo "Building image"
+	docker-build
+	echo "Logging in docker hub"
+	docker-login
+	echo "Sending image"
+	docker-push
 
 
 
