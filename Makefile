@@ -3,7 +3,7 @@ USERNAME = $(shell jq -r '.auths["https://index.docker.io/v2/"].username' $(DOCK
 PASSWORD = $(shell jq -r '.auths["https://index.docker.io/v2/"].password' $(DOCKER_CONFIG_FILE))
 IMAGEN_NAME="oscacaac1986/test_carvajal"
 docker-login:
-	@$(eval DOCKER_USERNAME := $(shell jq -r '.auths."https://index.docker.io/v1/".auth' $(DOCKER_CONFIG_FILE) | base64 -d | cut -d: -f1))
-    @$(eval DOCKER_PASSWORD := $(shell jq -r '.auths."https://index.docker.io/v1/".auth' $(DOCKER_CONFIG_FILE) | base64 -d | cut -d: -f2-))
-    @docker login -u $(DOCKER_USERNAME) -p $(DOCKER_PASSWORD)
+	@DOCKER_USERNAME=$$(jq -r '.auths."https://index.docker.io/v1/".auth' $(DOCKER_CONFIG_FILE) | base64 -d | cut -d: -f1); \
+    DOCKER_PASSWORD=$$(jq -r '.auths."https://index.docker.io/v1/".auth' $(DOCKER_CONFIG_FILE) | base64 -d | cut -d: -f2-); \
+    docker login -u $$DOCKER_USERNAME -p $$DOCKER_PASSWORD
 
