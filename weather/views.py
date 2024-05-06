@@ -9,6 +9,7 @@ def temperaturas_city(request):
     return render(request,'template_init.html')
 
 def response_temperaturas(request):
+    """View response weather city"""
     integration=IntegrationWeather()
     context=integration.api_consumption(request.POST['ciudad1'])
     return render (request, 'template_response.html', context)

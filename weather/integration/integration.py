@@ -22,6 +22,7 @@ class IntegrationWeather:
     
     
     def data_templates(self, datos:dict):
+        """Method build data templates"""
 
         ciudad=datos["nearest_area"][0]["areaName"][0]["value"]
         país=datos["nearest_area"][0]["country"][0]["value"]
