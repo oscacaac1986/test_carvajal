@@ -14,12 +14,12 @@ docker-push:
 	docker push $(IMAGEN_NAME)
 
 docker-deploy-hub: 
-	echo "docker deploy"; \
-	docker-build; \
-	echo "login"; \
-	docker-login; \
-	echo "push" ; \
-	docker-push
+	@echo "docker deploy"; \
+	make docker-build; \
+	@echo "login"; \
+	make docker-login; \
+	@echo "push" ; \
+	make docker-push
 
 
 
