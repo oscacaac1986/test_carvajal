@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Temperatura en  {{ city }}, {{ country }}</h1>
+  <h2>Region: {{ region }}</h2>
+  <h2>Temperaturas Esperadas:</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Dia</th>
+        <th>Temperatura Hoy</th>
+        <th>Temperatura Minima</th>
+        <th>Temperatura Maxima</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for pronostico in pronósticos %}
+      <tr>
+        <td>{{ pronostico.date }}</td>
+        <td>{{ pronostico.average_temperature }}°C</td>
+        <td>{{ pronostico.average_temperature_min }}°C</td>
+        <td>{{ pronostico.average_temperature_max }}°C</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</body>
+</html>

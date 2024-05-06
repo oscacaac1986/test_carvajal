@@ -4,7 +4,7 @@
 # If you need more help, visit the Dockerfile reference guide at
 # https://docs.docker.com/engine/reference/builder/
 
-FROM python:3.11.3-slim as base
+FROM python:3.10
 # Prevents Python from writing pyc files.
 ENV PYTHONDONTWRITEBYTECODE=1
 
@@ -33,5 +33,5 @@ COPY . /app
 
 RUN chmod +x entrypoints.sh
 
-ENTRYPOINT [ "./entrypoints.sh" ]
+CMD [ "python","manage.py", "runserver", "0.0.0.0:8000" ]
 
