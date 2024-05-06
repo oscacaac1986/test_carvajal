@@ -10,3 +10,10 @@ docker-login:
 docker-build:
 	docker build -t $(IMAGEN_NAME) .
 
+docker-push:
+	docker push $(IMAGEN_NAME)
+
+docker-deploy-hub: docker-build docker-login docker-push
+
+
+
