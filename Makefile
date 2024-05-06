@@ -5,7 +5,8 @@ IMAGEN_NAME="oscacaac1986/test_carvajal"
 
 
 docker-login:
-	echo $(USERNAME) 
-	echo $(PASSWORD)
 	docker login -u $(USERNAME) -p $(PASSWORD)
+
+docker-build:
+	docker build -t $(IMAGEN_NAME) .
 
