@@ -7,14 +7,3 @@ docker-login:
     @$(eval DOCKER_PASSWORD := $(shell jq -r '.auths."https://index.docker.io/v1/".auth' $(DOCKER_CONFIG_FILE) | base64 -d | cut -d: -f2-))
     @docker login -u $(DOCKER_USERNAME) -p $(DOCKER_PASSWORD)
 
-docker-build:
-	@docker build -t $(IMAGEN_NAME) .
-
-pull-docker:
-	@docker pull $(IMAGEN_NAME)
-
-push-docker:
-	@docker push $(IMAGEN_NAME)
-
-
-deploy-hub: docker-build docker-login push-docker
