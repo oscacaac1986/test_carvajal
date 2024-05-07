@@ -3,7 +3,7 @@ USERNAME = $(shell jq -r '.auths["https://index.docker.io/v2/"].username' $(DOCK
 PASSWORD = $(shell jq -r '.auths["https://index.docker.io/v2/"].password' $(DOCKER_CONFIG_FILE))
 PORT = "8000"
 IMAGEN_NAME="oscacaac1986/test_carvajal"
-CONTAINER_NAME = "test_carvajal
+CONTAINER_NAME = "test_carvajal"
 
 
 docker-login:
